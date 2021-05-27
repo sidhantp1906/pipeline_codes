@@ -28,13 +28,13 @@ module pipe2(
     input clk1,
     input clk2
     );
-	 reg [15:0]l12_a,l12_b,l23_z,l34_z;
+	reg [15:0]l12_a,l12_b,l23_z,l34_z; //creating pipelined inputs/outputs
  reg [3:0]l12_rd,l12_func,l23_rd;
   reg [15:0]l12_addr,l23_addr,l34_addr;
   
-  reg [15:0]Reg[15:0];
-  reg [15:0]mem[0:255];
-  assign zout = l34_z;
+	reg [15:0]Reg[15:0]; //initialising reg 
+	reg [15:0]mem[0:255]; //initialising memory
+  assign zout = l34_z; //output
  
  always @(posedge clk1) //s1
 begin
@@ -47,7 +47,7 @@ end
 
 always @(posedge clk2) //s2
 begin
-case(func)
+	case(func)                   //ALU operations
 4'b0000 : l23_z <= #2 l12_a + l12_b;
 4'b0001 : l23_z <= #2 l12_a - l12_b;
 4'b0010 : l23_z <= #2 l12_a * l12_b;
