@@ -18,6 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+//five stage pipelined implementation of simple alu operations of mips32 using opcodes
 module mips( input clk1,   input clk2);
 
 reg HALTED,TAKEN_BRANCH,RR_ALU,RM_ALU,LOAD,STORE,BRANCH,HALT;
